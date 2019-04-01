@@ -1,12 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>NUnitGenerativeTesting</RootNamespace>
-  </PropertyGroup>
+    <PropertyGroup>
+        <PackageId>NUnitGenerativeTesting</PackageId>
+        <Version>0.0.1-alpha</Version>
+        <Authors>Andrew Jones-Weiss</Authors>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>NUnitGenerativeTesting</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NUnit" Version="3.11.0" />
-  </ItemGroup>
-
+    <ItemGroup>
+        <PackageReference Include="NUnit" Version="3.11.0" />
+    </ItemGroup>
 </Project>
