@@ -13,12 +13,7 @@ script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: dotnet pack -c Release -p:PackageVersion=$TRAVIS_TAG
-  on:
-    tags: true
-    condition: $TRAVIS_TAG =~ ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$
-  provider: script
-  script: dotnet nuget push **/NUnitGenerativeTesting.$TRAVIS_TAG.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
+  script: dotnet pack -c Release -p:PackageVersion=$TRAVIS_TAG && dotnet nuget push **/NUnitGenerativeTesting.$TRAVIS_TAG.nupkg --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
   on:
     tags: true
     condition: $TRAVIS_TAG =~ ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$
